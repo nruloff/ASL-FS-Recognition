@@ -1,3 +1,4 @@
+# Source: Keras Transformer Model for Automatic Speech Recognition - https://keras.io/examples/audio/transformer_asr/
 def create_text_ds(data=train_df):
   '''
   INPUT
