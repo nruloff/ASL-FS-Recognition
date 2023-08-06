@@ -7,4 +7,4 @@ Link to YouTube Post for M.A.D.S. - A.S.L. - F.R. First Project Update <br>
 <br>
 ## Second Project Update
 Link to YouTube Post for M.A.D.S. - A.S.L. - F.R. Second Project Update <br>
-[![IMAGE ALT TEXT HERE]([https://img.youtube.com/vi/FY0zOXzfRXs/0.jpg)](https://www.youtube.com/watch?v=FY0zOXzfRXs](https://youtu.be/YxbOO5u5ovI)https://youtu.be/YxbOO5u5ovI)
+[![IMAGE ALT TEXT HERE](https://www.youtube.com/watch?v=FY0zOXzfRXs)](https://youtu.be/YxbOO5u5ovI)
