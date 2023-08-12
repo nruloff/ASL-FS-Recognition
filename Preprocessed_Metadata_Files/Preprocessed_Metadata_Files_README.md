@@ -1,0 +1,1 @@
+This subdirectory contains the file 'train_and_supplemental_EDA.pkl' which can be accessed to avoid having to run 'Gather_Visualization_Data.py' in the example Colab notebook - a process which requires a lot of time to generate the metadata dataframe.
