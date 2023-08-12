@@ -13,6 +13,7 @@ def Gather_Visualization_Data(input_df, kaggle_env=False):
         as well as Mounting of a Google Drive and Authorization to delete files from Google Drive Trashbin.
   '''
   train_df = input_df.copy()
+  train_df['sequence_length'] = train_df['phrase'].str.len()
   input_cols = input_df.columns.to_list()
   if 'right_hand_max_x' not in input_cols:
     cols_to_add = create_body_min_max_columns()
