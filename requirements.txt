@@ -1,0 +1,13 @@
+Google Colab Environments were run using Python 3.10.12
+
+Main Libraries for Transformer Model
+google==2.0.3
+keras==2.12.0
+numpy==1.23.5
+pandas==1.5.3
+pathlib==1.0.1
+requests==2.31.0
+tensorflow==2.12.0
+
+For Generation of Visualizations
+plotly==5.15.0
