@@ -63,6 +63,4 @@ def generate_hand_signing_visualization(pq_path, seq_id, selected_hand):
   for fr in fig.frames:
     for d in fr.data:
       d.update(mode='markers+lines')
-
-  fig.show()
-  return None
+  return fig
