@@ -12,7 +12,7 @@ def Generate_Hand_Usage_Visualization(input_df):
     data_df = Gather_Visualization_Data(input_df=input_df)
   else:
     data_df = input_df.copy()
-    
+
   # Separate the bar graph by each of the file groups
   data_df['Data_Subset'] = data_df.path.str.split('_').str[0]
 
@@ -29,7 +29,7 @@ def Generate_Hand_Usage_Visualization(input_df):
   # Make a copy of the data_df specifically focusing  on the columns for hands, group that column by 'Data_Subset'
   hand_df = data_df[final_hand_columns].copy()
   hand_grp = hand_df.groupby('Data_Subset').count()
-  total_samples = hand_grp.path.values
+  total_samples = hand_grp.path
   file_list = [grp_id[0].upper() + grp_id[1:] for grp_id in hand_grp.index]
 
   # Create dataframes focused on either right hand users or left/ambidextrous users
@@ -38,7 +38,7 @@ def Generate_Hand_Usage_Visualization(input_df):
   left_hand_grp = left_hand_df.groupby('Data_Subset').count()
   right_hand_grp = right_hand_df.groupby('Data_Subset').count()
   fig = go.Figure()
-  fig.add_trace(go.Bar(name="Right Hand Only", x=file_list, y=[right_hand_grp['path'].loc[grp_id] for grp_id in hand_grp.index]))
-  fig.add_trace(go.Bar(name="Left Hand or Ambidextrous", x=file_list, y=[left_hand_grp['path'].loc[grp_id] for grp_id in hand_grp.index]))
+  fig.add_trace(go.Bar(name="Right Hand Only", x=file_list, y=[(right_hand_grp['path'].loc[grp_id]/total_samples.loc[grp_id]) for grp_id in hand_grp.index]))
+  fig.add_trace(go.Bar(name="Left Hand or Ambidextrous", x=file_list, y=[(left_hand_grp['path'].loc[grp_id]/total_samples.loc[grp_id]) for grp_id in hand_grp.index]))
   fig.update_layout(title='Percentage of Hand Usage in Train Landmarks and Supplemental Landmarks Datasets')
   return fig
