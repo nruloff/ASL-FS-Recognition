@@ -19,6 +19,7 @@ def Frame_Sequence_Ratio_Visualization(input_df):
   data_df['Frame-Seq-Ratio'] = data_df['Frame_Count'] / data_df['sequence_length']
   data_df['Ratio_1'] = 'Blue'
   data_df.loc[(data_df['Frame-Seq-Ratio'] < 1), 'Ratio_1'] = 'Red'
+  data_df.loc[(data_df['Frame_Count'] > 512), 'Ratio_1'] = 'Red'
   data_df['Data_Subset'] = data_df.path.str.split('_').str[0]
 
   # Generate Data for Line of 'Average Number of Frames per Character'
