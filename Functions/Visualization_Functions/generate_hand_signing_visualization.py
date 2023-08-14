@@ -42,7 +42,7 @@ def generate_hand_signing_visualization(pq_path, seq_id, selected_hand):
   for m in np.arange(len(palm)):
     palm_df = palm_df.replace(to_replace='{}_{}'.format(selected_hand, palm[m]), value='palm_{}'.format(m))
   final_df = pd.concat([palm_df, quick_duplicate], ignore_index=True)
-  
+
   for finger in fingers:
     body_part_id_list = []
     finger_list = fingers[finger]
@@ -59,7 +59,7 @@ def generate_hand_signing_visualization(pq_path, seq_id, selected_hand):
   final_df = final_df.drop(columns=['body_part', 'sub_id'])
   final_df[['body_part', 'sub_id']] = final_df['body_part_id'].str.split('_', expand=True)
 
-  fig = px.scatter(final_df, x='x', y='y', color='body_part', animation_frame='frame', 
+  fig = px.scatter(final_df, x='x', y='y', color='body_part', animation_frame='frame',
                    range_x=[0, 1], range_y=[0,1], hover_name='body_part_id', width=600, height=800)
   fig.update_layout(xaxis_title=None, yaxis_title=None)
   fig.update_xaxes(visible=False)
@@ -70,5 +70,5 @@ def generate_hand_signing_visualization(pq_path, seq_id, selected_hand):
     for d in fr.data:
       d.update(mode='markers+lines')
 
-  
+
   return fig
